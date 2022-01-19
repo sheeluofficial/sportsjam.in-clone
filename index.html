@@ -108,6 +108,7 @@
 
 .nav-bottom{
     width: 100vw;
+    box-sizing: border-box;
     height: 45px;
     display: flex;
     justify-content: left;
@@ -122,25 +123,41 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 1.5vw;
     height: 100%;
 
 }
 .category{
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: min(1.8vw,15px);
     height: 100%;
     display: flex;
     padding-top: 15px;
     padding-left: 5px;
     padding-right: 5px;
     box-sizing: border-box;
+    position: relative;
 
 
 }
-.category:hover{
+.category:hover {
     background-color: black;
     color: white;
+}
+
+.dropdown{
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    color: black;
+    position: absolute;
+}
+.dropdown0{
+    height: 500px;
+}
+.category:hover .dropdown{
+    visibility: visible;
 }
 
     </style>
@@ -173,14 +190,7 @@
         </div>
         <div class="nav-bottom">
             <div class="categories">
-                <p class="category">sports</p>
-                <p class="category">fitness</p>
-                <p class="category">shoes</p>
-                <p class="category">clothing</p>
-                <p class="category">accessories</p>
-                <p class="category">leisure sports</p>
-                <p class="category">fanger</p>
-                <p class="category">brands</p>
+          
             </div>
         </div>
     </div>
@@ -194,19 +204,48 @@
     import categories from "./categories.js"
     let categoriesKeyArr = Object.keys(categories);
         console.log(categoriesKeyArr)
+
+        let categories_box = document.querySelector(".categories");
     for(let i=0;i<categoriesKeyArr.length; i++) {
+
+          let category_title = document.createElement("p");
+          category_title.setAttribute("class","category")
+          category_title.innerText = categoriesKeyArr[i];
+          let dropdown_box = document.createElement("div");
+          dropdown_box.setAttribute("class",`dropdown${i}`);
+          dropdown_box.classList.add("dropdown");
+        //   category_title.append(dropdown_box);
+          
+          
 
         let categoriesValueObj = categories[categoriesKeyArr[i]]
         let subCategoriesKeyArr= Object.keys(categoriesValueObj)
         console.log(subCategoriesKeyArr)
+        
+            for(let j=0;j<subCategoriesKeyArr.length;j++) {
+                
+                let sub_category_box = document.createElement("div");
+                let sub_category_title = document.createElement("h3");
+                sub_category_title.setAttribute("class","sub-category-title");
+                sub_category_title.innerText = subCategoriesKeyArr[j];
+                sub_category_box.append(sub_category_title);
 
-        for(let sub=0;sub<subCategoriesKeyArr.length;sub++) {
-           let subCategoriesValueObj = categoriesValueObj[subCategoriesKeyArr[sub]] 
-           let keywordsKeyArr = Object.keys(subCategoriesValueObj)
-           console.log(keywordsKeyArr)
+            let subCategoriesValueObj = categoriesValueObj[subCategoriesKeyArr[j]] 
+            let keywordsKeyArr = Object.keys(subCategoriesValueObj)
+            console.log(keywordsKeyArr)  
 
-           
-        }
+                    for(let k=0;k<keywordsKeyArr.length;k++) {
+                        
+                        let keyword_title  = document.createElement("p");
+                        keyword_title.innerText = keywordsKeyArr[k];
+                        sub_category_box.append(keyword_title)
+
+                    }
+                    dropdown_box.append(sub_category_box);
+            }
+            category_title.append(dropdown_box)
+            categories_box.append(category_title)
+
     }
 
 
