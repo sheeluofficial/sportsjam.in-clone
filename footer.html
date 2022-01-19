@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+      integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+    <style>
+        .container {
+  display: flex;
+  justify-content: space-around;
+  background-color: #e1e1e1;
+  padding: 30px 0px;
+}
+.container > div {
+  text-align: center;
+}
+@media only screen and (min-width: 375px) and (max-width: 768px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media only screen and (min-width: 0px) and (max-width: 375px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.gift {
+  font-size: 60px;
+}
+.gift:hover {
+  color: #f58300;
+}
+a {
+  text-align: center;
+  color: #000000;
+  font-size: 20px;
+}
+li {
+  list-style-type: none;
+}
+.copyright {
+  color: #979797;
+  font-family: open sans;
+  font-size: 12px;
+  text-transform: uppercase;
+  float: left;
+}
+
+/* Footer Styling */
+
+.new_fotter {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: left;
+  font-size: 12px;
+  background-color: #262626;
+}
+@media only screen and (min-width: 375px) and (max-width: 768px) {
+  .new_fotter {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (min-width: 0px) and (max-width: 375px) {
+  .new_fotter {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .title {
+    margin-top: 20px;
+  }
+}
+.title {
+  color: #dedede;
+  font-family: raleway, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-top:20px;
+}
+.one li a {
+  padding-left: 10px;
+  line-height: 24px;
+  color: #dedede;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: raleway, sans-serif;
+  font-weight: 300;
+}
+.one li a:hover {
+  color: #e92705;
+}
+.mob_icon {
+  color: #dedede;
+  font-family: ralway, sans-serif;
+  line-height: 17px;
+  font-weight: 300;
+}
+.links {
+  color: #dedede;
+  margin-right: 10px;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+.copy-right{
+  text-align: left;
+  font-family: open sans;
+  top: 10px;
+  padding:30px 10px;
+  font-size: 10px;
+  color: #dedede;
+  height:20px;
+  margin-top: 9vw;
+}
+.powered_by{
+  margin-right: 0;
+  margin-left:250%;
+}
+.powered_by span{
+  font-size:8px;
+  color:white;
+
+}
+.powered_by img{
+  height:30px;
+  width:auto;
+}
+.callout4 {
+  width: 96%;
+  margin: 30px 40px;
+  justify-content: center;
+  align-content: center;
+}
+.callout4 h2 {
+  font-weight: 700;
+  font-size: 22px;
+  font-weight: 800;
+  text-align: center;
+  padding: 0 0 10px;
+  color: #333;
+  text-transform: uppercase;
+}
+.callout4 p {
+  font-size: 13px;
+  color: #333;
+  line-height: 28px;
+  text-align: center;
+}
+.callout4 a.btn {
+  text-align: center;
+  border: 1px solid #000;
+  color: #000;
+  font-size: 18px;
+  margin: 25px 0 0;
+  padding: 8px 45px;
+  text-decoration: none;
+  display: inline-block;
+  margin-left: 650px;
+}
+.callout4 a.btn:hover {
+  color: #f3a310;
+  border: 1px solid #f3a310;
+  font-size: 18px;
+}
+.left-text {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 30px;
+  height: 500px;
+}
+.rigthimg img {
+  width: 40%;
+}
+.left-text h2 {
+  font-family: raleway, sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  text-align: left;
+  padding: 0 0 10px;
+  color: #333;
+  text-transform: uppercase;
+}
+.left-text p {
+  font-family: raleway, sans-serif;
+  font-size: 13px;
+  color: #333;
+  line-height: 28px;
+}
+.left-text a.btn {
+  background: #262626;
+  color: #fff;
+  float: left;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 40px 0 0;
+  padding: 9px 25px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+marquee img{
+  height:70px;
+  margin-bottom: 40px;
+}
+.left-text a.btn:hover{
+  background-color: #e92705;
+}
+.victor {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 40px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.victor > div > p {
+  text-align: center;
+  color: #757575;
+  font-family: raleway, sans-serif;
+  font-size: 20px;
+}
+.middle {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 30px;
+  margin: 20px;
+}
+.middle > div > p {
+  font-family: raleway, sans-serif;
+  line-height: 26px;
+  text-align: justify;
+  font-size: 15px;
+}
+#paralink {
+  border: 1px solid #000000;
+  padding: 10px;
+  text-decoration: none;
+  font-family: raleway, sans-serif;
+  font-size: 15px;
+}
+.stereo {
+  width: 100%;
+}
+.stereo a {
+  font-size: 14px;
+  padding: 16px;
+  text-align: center;
+  text-decoration: none;
+  font-family: ralway, sans-serif;
+  font-weight: 500;
+}
+.stereo > a:hover {
+  background-color: #000000;
+  color: #ffffff;
+  font-weight: 500;
+}
+.para {
+  width: 90%;
+}
+.tab-heading {
+  width: 98%;
+  text-align: center;
+  display: inline-block;
+}
+.tab-heading > h2 {
+  color: #595959;
+  font-size: 30px;
+  padding: 70px 0 30px;
+  text-transform: uppercase;
+  font-family: open sans;
+  font-weight: bold;
+}
+.para > h2 {
+  color: #000000;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-family: open sans;
+}
+.img-last{
+  width:100%; 
+  height:100%;
+  margin-bottom: 40px;
+
+}
+.img-last:hover{
+  cursor: pointer;
+}
+
+.victor div:nth-child(1) img:hover{
+   cursor:pointer;
+}
+.victor div:nth-child(2) img:hover{
+  cursor:pointer;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <li>
+                <i class="fa fa-gift gift"></i>
+            </li>
+            <a href="#">E-gift Voucher</a>
+        </div>
+        <div>
+            <li>
+                <i class="fas fa-award gift"></i>
+            </li>
+            <a href="#">Reward Points</a>
+        </div>
+        <div>
+            <li>
+                <i class="fas fa-book-open gift"></i>
+            </li>
+            <a href="#">Buyers Guide</a>
+        </div>
+        <div>
+            <li>
+                <i class="fas fa-table-tennis gift"></i>
+            </li>
+            <a href="">Customized Services</a>
+        </div>
+        <div>
+            <li>
+                <i class="fas fa-shipping-fast gift"></i>
+            </li>
+            <a href="#">Express Shipping</a>
+        </div>
+        <div>
+            <li>
+                <i class="fas fa-shield-alt gift"></i>
+            </li>
+            <a href="#">Secure Shopping</a>
+        </div>
+        <div>
+            <li>
+                <i class="fa fa-check-circle gift"></i>
+            </li>
+            <a href="#">100% Authentic</a>
+        </div>
+    </div>
+    
+    <div class="new_fotter">
+        <ul class="one">
+            <li class="title">Get to Know us</li>
+            <li><a href="/pages/About-Us/pgid-68406.aspx" rel="nofollow" target="_blank">About Us</a></li>
+            <li><a href="//www.sportsjam.in/Contactus" rel="nofollow" target="_blank">Contact Us</a></li>
+            <li><a href="/pages/Contact-Us/pgid-68433.aspx" rel="nofollow" target="_blank">Inquiry / Feedback</a></li>
+            <li><a href="/pages/our-stores/pgid-1305018.aspx" target="_blank">Our Stores</a></li>
+            <li><a href="/pages/Who-we-are/pgid-158897.aspx" rel="nofollow" target="_blank">Sportsjam Team</a></li>
+        </ul>
+        <ul class="one">
+            <li class="title">Here to help</li>
+            <li><a class="loginlnk LoginPopUpLink signin" href="#" rel="nofollow">Register / Login </a></li>
+            <li><a href="/pages/Delivery-Info-SportsJam/pgid-148747.aspx">Delivery &amp; Charges</a></li>
+            <li><a href="/pages/Payment-Info-Sportsjam/pgid-158647.aspx" rel="nofollow" target="_blank">Payment Options</a>
+            </li>
+            <li><a href="/pages/FAQs/pgid-68434.aspx" rel="nofollow" target="_blank">FAQ's</a></li>
+            <li><a href="/pages/Returns-Policy/pgid-68452.aspx" rel="nofollow" target="_blank">Returns Policy</a></li>
+            <li><a href="/trackorder.aspx" rel="nofollow" target="_blank">Track My Order</a></li>
+            <li><a href="#" rel="nofollow" target="_blank">Buy in Bulk</a></li>
+    
+        </ul>
+        <ul class="one">
+            <li class="title">Payments</li>
+            <li><img
+                    src="https://storage.sg.content-cdn.io/in-resources/b368029c-a4dd-448a-a888-58348cb1b144/Images/userimages/Payments.png">
+            </li>
+        </ul>
+    
+        <ul class="utilitynav latter">
+            <li class="title">SIGN UP FOR NEWSLETTER</li>
+            <li>
+                <div class="newsletter"></div>
+                <ul class="one" style="margin:32px 0 0 0; padding:0;">
+                    <li class="title">Connect With Us</li>
+                    <li class="mob-icon" >
+                        <a href="https://www.facebook.com/Sportsjam.in"target="_blank" ><i class="fab fa-facebook-square links"></i></a> 
+                        <a href="https://twitter.com/SportsJamIn" target="_blank"><i class="fab fa-twitter links"></i></a>
+                        <a href="https://www.instagram.com/sportsjam.in/" target="_blank"><i class="fab fa-instagram-square links"></i></a> 
+                        <a href="https://www.youtube.com/channel/UC-eZWeqy5zPUea1ykX7PWAg" target="_blank"><i class="fab fa-youtube links"></i></a>
+                    </li>
+                    <li>
+                        <img class="ssl" src="https://storage.sg.content-cdn.io/in-resources/b368029c-a4dd-448a-a888-58348cb1b144/Images/userimages/ssl.png">
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <div class="copy-right"><span>COPYRIGHT</span></div>
+        <div class="powered_by">
+            <span>POWERED BY</span>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4luynuJj_KZMEAsAukNgmZpKPZH9jAd0CqA&usqp=CAU" alt="">
+        </div>
+    </div>
+    
+</body>
+</html>

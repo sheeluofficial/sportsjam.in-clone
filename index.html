@@ -5,8 +5,210 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+      integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles/normalize.css">
+    <style>
+#navbar{
+    display: flex;
+    flex-direction: column;
+}
+ .nav-top{
+     height: 40px;
+     width: 100vw;
+     display: flex;
+     flex-direction: row;
+     justify-content: right;
+     background-color: rgb(24,24,24);
+     box-sizing: border-box;
+     padding-right: 30px;
+     padding-top: 5px;
+     font-size: 14px;
+     font-weight: 500;
+ }
+ .nav-float-right{
+     display: flex;
+     flex-direction: row;
+     color: white;
+     gap: 18px;
+     align-items: center;
+     /* letter-spacing: 1px; */
+ } 
+ .nav-float-right div{
+     display: flex;
+     gap: 5px;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+ } 
+ .nav-float-right div:hover p{
+     border-bottom: 1px solid white;
+ }
+ .nav-mid{
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     height: 15vh;
+     box-sizing: border-box;
+     align-items: center;
+     padding: 0 30px;
+     padding-top: 10px;
+ }
+ #search-box{
+     height: 30px;
+     border: 1px solid black;
+    width: 35vw;
+     padding-right: 10px;
+     display: flex;
+     justify-content: left;
+     align-items: center;
+ }
+ #search-bar{
+     height: 90%;
+     border: 0;
+     width: 93%;
+     margin-right:10px ;
+
+
+ }
+ .cart-box{
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+     gap: 20px;
+ }
+
+#cart-icon{
+    font-size: 40px;
+    position: relative;
+}
+#cart-count{
+    height: 26px;
+    width: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: rgb(255,102,0);
+    position: absolute;
+    top: -10px;
+    left: 30px;
+    font-size: 15px;
+    color: white;
+    font-weight: 400;
+}
+
+.nav-bottom{
+    width: 100vw;
+    height: 45px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 50px;
+    border-top: 1px solid rgba(196, 196, 196,0.7);
+    border-bottom: 1px solid rgba(17, 17, 17, 0.7);
+}
+
+.categories{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 100%;
+
+}
+.category{
+    text-transform: uppercase;
+    font-size: 14px;
+    height: 100%;
+    display: flex;
+    padding-top: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+    box-sizing: border-box;
+
+
+}
+.category:hover{
+    background-color: black;
+    color: white;
+}
+
+    </style>
 </head>
 <body>
-    
+    <div id="navbar">
+        <div class="nav-top">
+            <div class="nav-float-right">
+                <div><i class="fas fa-phone-alt"></i> <p>Call Us :+91-9555461555</p></div>
+                <div><i class="fas fa-sign-in-alt"></i> <p>Sign in</p></div>
+                <div><i class="fas fa-user"></i> <p>Create Account</p></div>
+                <div><i class="fas fa-heart"></i> <p>Whishlist</p></div>
+            </div>
+        </div>
+
+        <div class="nav-mid">
+            <div class="nav-logo">
+                <a href="index.html"><img src="https://storage.sg.content-cdn.io/in-resources/b368029c-a4dd-448a-a888-58348cb1b144/Images/userimages/logo.jpg" alt=""> </a>
+            </div>
+         <div class="nav-search-box">
+            <div id="search-box">
+                <input type="text" placeholder="Search" id="search-bar">
+                <i class="fas fa-search" style="user-select: auto;" id="search-icon"></i>
+            </div>
+      
+         </div>
+            <div class="cart-box">
+                <i class="fas fa-shopping-cart" id="cart-icon"><span id="cart-count">0</span></i> <p>Shopping Cart</p>
+            </div>
+        </div>
+        <div class="nav-bottom">
+            <div class="categories">
+                <p class="category">sports</p>
+                <p class="category">fitness</p>
+                <p class="category">shoes</p>
+                <p class="category">clothing</p>
+                <p class="category">accessories</p>
+                <p class="category">leisure sports</p>
+                <p class="category">fanger</p>
+                <p class="category">brands</p>
+            </div>
+        </div>
+    </div>
+    <div class="carousel">
+        
+    </div>
 </body>
 </html>
+
+<script type="module">
+    import categories from "./categories.js"
+    let categoriesKeyArr = Object.keys(categories);
+        console.log(categoriesKeyArr)
+    for(let i=0;i<categoriesKeyArr.length; i++) {
+
+        let categoriesValueObj = categories[categoriesKeyArr[i]]
+        let subCategoriesKeyArr= Object.keys(categoriesValueObj)
+        console.log(subCategoriesKeyArr)
+
+        for(let sub=0;sub<subCategoriesKeyArr.length;sub++) {
+           let subCategoriesValueObj = categoriesValueObj[subCategoriesKeyArr[sub]] 
+           let keywordsKeyArr = Object.keys(subCategoriesValueObj)
+           console.log(keywordsKeyArr)
+
+           
+        }
+    }
+
+
+
+</script>
