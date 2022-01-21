@@ -247,13 +247,14 @@
 
 <script type="module">
     import categories from "./categories.js"
+    import {carousel,carouselScript} from "./components/carousel.js"
     import sliders from "./scripts/sliders.js"
     import footer from "./components/footer.js"
     sliders()
-    import {navbar,createDropdown} from "./components/navbar.js"
-    import {carousel,carouselScript} from "./components/carousel.js"
+    import {navbar,createDropdown,updateCart} from "./components/navbar.js"
     document.getElementById("navbar").innerHTML = navbar()
         createDropdown(categories)
+        updateCart()
 
         document.getElementById("carousel").innerHTML = carousel()
         carouselScript()

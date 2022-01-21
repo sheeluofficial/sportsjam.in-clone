@@ -127,6 +127,9 @@
               display: flex;
               flex-direction: row;
               justify-content: space-between;
+              margin-top: 50px;
+              background-color: rgb(202, 201, 201);
+              padding: 12px 10px;
           }
           .icon-footer>div{
               display: flex;

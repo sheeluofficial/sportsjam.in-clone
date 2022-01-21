@@ -20,7 +20,7 @@ function navbar(){
 
  </div>
     <div class="cart-box">
-        <i class="fas fa-shopping-cart" id="cart-icon"><span id="cart-count">0</span></i> <p>Shopping Cart</p>
+       <a href="./cart.html" class="cart-btn"> <i class="fas fa-shopping-cart" id="cart-icon"><span id="cart-count">0</span></i> <p>Shopping Cart</p> <a>
     </div>
 </div>
 <div class="nav-bottom">
@@ -31,6 +31,8 @@ function navbar(){
 }
 
 function createDropdown(categories) {
+    
+    
 
     let categoriesKeyArr = Object.keys(categories);
     console.log(categoriesKeyArr)
@@ -83,7 +85,12 @@ function createDropdown(categories) {
                                 
                             }  
                         keyword_title.addEventListener("click",()=>{
-                          localStorage.setItem("productLocalArr",JSON.stringify(productArr))
+                            if(Object.keys(productArr[0]).length>6||productArr.length==0){
+                                localStorage.setItem("productLocalArr",JSON.stringify([]))
+                            } else{
+
+                                localStorage.setItem("productLocalArr",JSON.stringify(productArr))
+                            }
                           window.location.href  = "product.html"
                         })
 
@@ -100,4 +107,61 @@ function createDropdown(categories) {
 
 }
 
-export  {navbar,createDropdown}
+
+function updateCart(action,givenf=null,product,index) {
+    let cart_count = document.getElementById("cart-count")
+    let total_price = document.querySelector(".total-price")
+    let cartProducts = JSON.parse(localStorage.getItem("cartProducts")) ?? [];
+    if(action=="add") {
+    if(product!=null&&product!=undefined&&product!=0){
+
+        cartProducts.push(product)
+        localStorage.setItem("cartProducts",JSON.stringify(cartProducts))
+
+    }
+}
+if(action == 'remove') {
+
+     cartProducts.splice(index,1)
+    localStorage.setItem("cartProducts",JSON.stringify(cartProducts))
+
+
+    if(cartProducts.length!=0) {
+        total_price.innerText = `Sub Total=> ${cartProducts.reduce((a,b)=>{
+            return a + parseInt(countTotalSum(b.price))
+        },0)}`
+    
+         } else{
+            total_price.innerText = `Sub Total=> 00`
+         }
+}
+
+     if(cartProducts.length!=0&&action=="cartpage") {
+    total_price.innerText = `Sub Total=> ${cartProducts.reduce((a,b)=>{
+        return a + parseInt(countTotalSum(b.price))
+    },0)}`
+
+     } else if(action =="cartpage"){
+        total_price.innerText = `Sub Total=> 00`
+     }
+    cart_count.innerText = cartProducts.length;
+
+    function countTotalSum(str) {
+        let sumString = ""
+
+        for(let i=0; i<str.length; i++) {
+            if(str[i]!=","){
+                sumString +=str[i]
+            }
+
+        }
+        return sumString
+    }
+  
+    if(givenf!=null) {
+        givenf()
+    }
+
+}
+
+export  {navbar,createDropdown,updateCart}
