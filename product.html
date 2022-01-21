@@ -101,9 +101,7 @@ if(data.length ==0) {
 else {
 
 data.forEach(function (product) {
-    console.log(product.price)
-
-
+ 
     let div = document.createElement("div");
     div.setAttribute("class","product-box")
 
@@ -158,7 +156,7 @@ lowToHigh()
 
 function highToLow() {
      productLocalArr = productLocalArr.sort(function (a, b) {
-        return b.price??b.mrp - a.price??a.mrp
+        return (b.price ?? b.mrp) - (a.price ?? a.mrp)
     })
   showproduct(productLocalArr,product_container)
 }
@@ -171,7 +169,7 @@ function discountSort() {
 
 function lowToHigh() {
      productLocalArr = productLocalArr.sort(function (a, b) {
-        return a.price??a.mrp - b.price??b.mrp
+        return (a.price ?? a.mrp) - (b.price ?? b.mrp)
     })
     showproduct(productLocalArr,product_container)
 }
