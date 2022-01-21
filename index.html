@@ -246,6 +246,13 @@
 </html>
 
 <script type="module">
+let initialUserObj = JSON.parse(localStorage.getItem("userData"))
+if(initialUserObj==null) {
+
+    localStorage.setItem("userData",JSON.stringify({}))
+}
+
+
     import categories from "./categories.js"
     import {carousel,carouselScript} from "./components/carousel.js"
     import sliders from "./scripts/sliders.js"
@@ -284,5 +291,7 @@ document.getElementById("createUser").addEventListener("click",()=>{
     }
     
 })
+
+
 
 </script>

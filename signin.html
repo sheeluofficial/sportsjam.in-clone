@@ -217,4 +217,28 @@ async function getUser(username,token) {
         window.location.href = "index.html"
     }
 
+
+
+    document.getElementById("logInBtn").addEventListener("click",()=>{
+  
+  let logInBtn = document.getElementById("logInBtn")
+  if(logInBtn.innerText=="Log Out") {
+ 
+      localStorage.setItem("userData",JSON.stringify({}))
+      window.location.reload();
+  } else{
+      window.location.href = "signin.html"
+      checkLogStatus()
+  }
+
+})
+
+document.getElementById("createUser").addEventListener("click",()=>{
+let createUserBtn = document.getElementById("createUser");
+  if(createUserBtn.innerText=="Create Account") {
+      window.location.href = "signup.html"
+  }
+  
+})
+
 </script>
