@@ -83,7 +83,7 @@ function createDropdown(categories) {
                                 
                             }  
                         keyword_title.addEventListener("click",()=>{
-                            if(Object.keys(productArr[0]).length>6||productArr.length==0){
+                            if(Object.keys(productArr[0]).length>8||productArr.length==0){
                                 localStorage.setItem("productLocalArr",JSON.stringify([]))
                             } else{
 
@@ -126,7 +126,7 @@ if(action == 'remove') {
 
     if(cartProducts.length!=0) {
         let totalCartValue = cartProducts.reduce((a,b)=>{
-            return a + parseInt(countTotalSum(b.price))
+            return a + parseInt(countTotalSum(b.price??b.mrp))
 
         },0)
         localStorage.setItem("totalCartValue",JSON.stringify(totalCartValue))
@@ -141,7 +141,7 @@ if(action == 'remove') {
      if(cartProducts.length!=0&&action=="cartpage") {
        
         let totalCartValue = cartProducts.reduce((a,b)=>{
-            return a + parseInt(countTotalSum(b.price))
+            return a + parseInt(countTotalSum(b.price??b.mrp))
 
         },0)
         localStorage.setItem("totalCartValue",JSON.stringify(totalCartValue))
@@ -175,7 +175,7 @@ if(action == 'remove') {
  function checkLogStatus() {
      let userData = JSON.parse(localStorage.getItem("userData"))
      
-         if(Object.keys(userData).length==6) {
+         if(Object.keys(userData).length>=6&&Object.keys(userData).length<=8) {
 
             document.getElementById("createUser").innerText = userData.name;
             document.getElementById("logInBtn").innerText = "Log Out"

@@ -81,10 +81,10 @@
                 money_div.setAttribute("class", "product-price-box")
 
                 let product_price = document.createElement("p");
-                product_price.textContent = `Price ${product.price}`
+                product_price.textContent = `Price ${product.price??product.mrp}`
 
                 let discount = document.createElement("p")
-                discount.innerText = `${product.discount}`;
+                discount.innerText = `${product.discount??0}`;
                 
                 money_div.append(product_price, discount)
                 

@@ -115,7 +115,7 @@ data.forEach(function (product) {
      money_div.setAttribute("class","product-price-box")
 
     let product_price = document.createElement("p");
-    product_price.textContent = `Price ${product.price}`
+    product_price.textContent = `Price ${product.price??product.mrp}`
      
      let discount = document.createElement("p")
      discount.innerText=`${product.discount}`;
@@ -158,7 +158,7 @@ lowToHigh()
 
 function highToLow() {
      productLocalArr = productLocalArr.sort(function (a, b) {
-        return b.price - a.price
+        return b.price??b.mrp - a.price??a.mrp
     })
   showproduct(productLocalArr,product_container)
 }
@@ -171,7 +171,7 @@ function discountSort() {
 
 function lowToHigh() {
      productLocalArr = productLocalArr.sort(function (a, b) {
-        return a.price - b.price
+        return a.price??a.mrp - b.price??b.mrp
     })
     showproduct(productLocalArr,product_container)
 }

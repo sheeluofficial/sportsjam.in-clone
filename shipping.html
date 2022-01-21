@@ -231,7 +231,7 @@
 
         products.forEach(function (products) {
 
-            sum = sum + Number(products.price)
+            sum = sum + Number(products.price??products.mrp)
 
         
 

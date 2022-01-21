@@ -279,7 +279,7 @@
 
         products.forEach(function (product) {
 
-            sum = sum + Number(product.price)
+            sum = sum + Number(product.price??product.mrp)
         })
 
     }
