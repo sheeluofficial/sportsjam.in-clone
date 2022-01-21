@@ -12,7 +12,7 @@
      box-sizing: border-box;
      padding-right: 30px;
      padding-top: 5px;
-     font-size: 14px;
+     font-size: 13px;
      font-weight: 500;
  }
  .nav-float-right{
@@ -23,6 +23,10 @@
      align-items: center;
      /* letter-spacing: 1px; */
  } 
+ .nav-float-right a{
+     color: white;
+     text-decoration: none;
+ }
  .nav-float-right div{
      display: flex;
      gap: 5px;

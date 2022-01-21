@@ -2,8 +2,8 @@ function navbar(){
     return ` <div class="nav-top">
     <div class="nav-float-right">
         <div><i class="fas fa-phone-alt"></i> <p>Call Us :+91-9555461555</p></div>
-        <div><i class="fas fa-sign-in-alt"></i> <p>Sign in</p></div>
-        <div><i class="fas fa-user"></i> <p>Create Account</p></div>
+        <div><i class="fas fa-sign-in-alt"></i> <p id="logInBtn">Log In</p></div>
+        <div><i class="fas fa-user"></i> <p id="createUser">Create Account</p></div>
         <div><i class="fas fa-heart"></i> <p>Whishlist</p></div>
     </div>
 </div>
@@ -32,8 +32,6 @@ function navbar(){
 
 function createDropdown(categories) {
     
-    
-
     let categoriesKeyArr = Object.keys(categories);
     console.log(categoriesKeyArr)
     let categories_box = document.querySelector(".categories");
@@ -127,9 +125,13 @@ if(action == 'remove') {
 
 
     if(cartProducts.length!=0) {
-        total_price.innerText = `Sub Total=> ${cartProducts.reduce((a,b)=>{
+        let totalCartValue = cartProducts.reduce((a,b)=>{
             return a + parseInt(countTotalSum(b.price))
-        },0)}`
+
+        },0)
+        localStorage.setItem("totalCartValue",JSON.stringify(totalCartValue))
+        total_price.innerText = `Sub Total=> ${totalCartValue}`
+
     
          } else{
             total_price.innerText = `Sub Total=> 00`
@@ -137,9 +139,15 @@ if(action == 'remove') {
 }
 
      if(cartProducts.length!=0&&action=="cartpage") {
-    total_price.innerText = `Sub Total=> ${cartProducts.reduce((a,b)=>{
-        return a + parseInt(countTotalSum(b.price))
-    },0)}`
+       
+        let totalCartValue = cartProducts.reduce((a,b)=>{
+            return a + parseInt(countTotalSum(b.price))
+
+        },0)
+        localStorage.setItem("totalCartValue",JSON.stringify(totalCartValue))
+
+
+    total_price.innerText = `Sub Total=> ${totalCartValue}`
 
      } else if(action =="cartpage"){
         total_price.innerText = `Sub Total=> 00`
@@ -163,5 +171,18 @@ if(action == 'remove') {
     }
 
 }
+ 
+ function checkLogStatus() {
+     let userData = JSON.parse(localStorage.getItem("userData"))
+     
+         if(Object.keys(userData).length==6) {
 
-export  {navbar,createDropdown,updateCart}
+            document.getElementById("createUser").innerText = userData.name;
+            document.getElementById("logInBtn").innerText = "Log Out"
+
+         }
+
+
+ }
+ 
+export  {navbar,createDropdown,updateCart,checkLogStatus}

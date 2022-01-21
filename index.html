@@ -251,13 +251,38 @@
     import sliders from "./scripts/sliders.js"
     import footer from "./components/footer.js"
     sliders()
-    import {navbar,createDropdown,updateCart} from "./components/navbar.js"
+    import {navbar,createDropdown,updateCart,checkLogStatus} from "./components/navbar.js"
     document.getElementById("navbar").innerHTML = navbar()
         createDropdown(categories)
         updateCart()
+        checkLogStatus()
 
         document.getElementById("carousel").innerHTML = carousel()
         carouselScript()
 
 document.getElementById("footer").innerHTML = footer()
+
+
+document.getElementById("logInBtn").addEventListener("click",()=>{
+  
+    let logInBtn = document.getElementById("logInBtn")
+    if(logInBtn.innerText=="Log Out") {
+   
+        localStorage.setItem("userData",JSON.stringify({}))
+        window.location.reload();
+    } else{
+        window.location.href = "signin.html"
+        checkLogStatus()
+    }
+
+})
+
+document.getElementById("createUser").addEventListener("click",()=>{
+ let createUserBtn = document.getElementById("createUser");
+    if(createUserBtn.innerText=="Create Account") {
+        window.location.href = "signup.html"
+    }
+    
+})
+
 </script>

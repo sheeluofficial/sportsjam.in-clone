@@ -72,11 +72,12 @@
 </html>
 <script type="module">
      import categories from "./categories.js"
-     import {navbar,createDropdown,updateCart} from "./components/navbar.js"
+     import {navbar,createDropdown,updateCart,checkLogStatus} from "./components/navbar.js"
      import footer from "./components/footer.js"
     document.getElementById("navbar").innerHTML = navbar()
         createDropdown(categories)
         updateCart()
+        checkLogStatus()
 document.getElementById("footer").innerHTML = footer()
 
 
@@ -174,5 +175,27 @@ function lowToHigh() {
     })
     showproduct(productLocalArr,product_container)
 }
+
+
+document.getElementById("logInBtn").addEventListener("click",()=>{
+  
+  let logInBtn = document.getElementById("logInBtn")
+  if(logInBtn.innerText=="Log Out") {
+      localStorage.setItem("userData",JSON.stringify({}))
+      window.location.reload();
+  } else{
+      window.location.href = "signin.html"
+      checkLogStatus()
+  }
+
+})
+
+document.getElementById("createUser").addEventListener("click",()=>{
+let createUserBtn = document.getElementById("createUser");
+  if(createUserBtn.innerText=="Create Account") {
+      window.location.href = "signup.html"
+  }
+  
+})
 
 </script>

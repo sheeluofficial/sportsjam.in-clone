@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Information - HOK Makeup - Checkout</title>
-    <link rel="shortcut icon" type="image" href="C:\Users\Ankit Mishra\Downloads\logo.png">
+
     <style>
         /* div {
             /* border: 1px solid black; */
@@ -135,10 +135,12 @@
     <div class="b1">
         <div class="textc b2">
             <div class="boxinr">
-                <img src="https://storage.sg.content-cdn.io/in-resources/b368029c-a4dd-448a-a888-58348cb1b144/Images/userimages/logo.jpg"
-                    alt=""> <br> <br>
+               <a href="index.html"> <img src="https://storage.sg.content-cdn.io/in-resources/b368029c-a4dd-448a-a888-58348cb1b144/Images/userimages/logo.jpg"
+                    alt=""> 
+                </a>
+                    <br> <br>
                 <div>
-                    <spna><a href="hokcart.html" style="text-decoration: none;"> Cart</a></spna> > Information >
+                    <spna><a href="cart.html" style="text-decoration: none;"> Cart</a></spna> > Information >
                     Shipping > Payment
                 </div>
                 <div class="b1">
@@ -267,38 +269,17 @@
 
 <script>
 
-    let parent = document.getElementById("boxright")
+    let parent = document.getElementById("ca")
 
-    let products = JSON.parse(localStorage.getItem("hokcart"));
+    let products = JSON.parse(localStorage.getItem("cartProducts"));
 
     let sum = 0;
 
     function showhokproduct() {
 
-        products.forEach(function (products) {
+        products.forEach(function (product) {
 
-            let div = document.createElement("div")
-
-            let img = document.createElement("img")
-            img.setAttribute("class", "dekhoimg")
-            img.src = products.img
-
-            let name = document.createElement("p")
-            name.setAttribute("class", "dekhoname")
-            name.textContent = products.name
-
-
-            let price = document.createElement("p")
-            price.textContent = "₹" + products.price + ".00"
-            price.setAttribute("class", "dekhoprice")
-
-            sum = sum + Number(products.price)
-
-            div.append(img, name, price)
-
-            parent.append(div)
-
-
+            sum = sum + Number(product.price)
         })
 
     }
